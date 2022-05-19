@@ -1,0 +1,18 @@
+version: '3.7'
+services:
+    docker-fastapi:
+        container_name: docker-fastapi
+        build:
+            context: ./backend
+            dockerfile: Dockerfile
+        restart: always
+        ports:
+            -   "8000:8000"
+    docker-react:
+        container_name: docker-react
+        build:
+            context: ./front-end
+            dockerfile: Dockerfile
+        restart: always
+        ports:
+            -   "3000:3000"

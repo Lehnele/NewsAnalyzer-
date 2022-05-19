@@ -1,0 +1,21 @@
+.CheckBox {
+    /*width: 80%;*/
+    display: flex;
+    align-items: center;
+    color: #000;
+}
+
+.CheckBox > div {
+    padding-left: 50px;
+}
+
+.CheckBox input{
+    color: #d0c4c4;
+
+}
+
+.CheckBox input, label  {
+    font-size: 17px;
+    cursor: pointer;
+    padding-left: 3px;
+}

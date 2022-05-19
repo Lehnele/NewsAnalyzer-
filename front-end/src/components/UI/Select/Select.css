@@ -1,0 +1,37 @@
+.Select {
+    width: 200px;
+    margin-bottom: 6px;
+}
+
+.Select label {
+    color: #000;
+    margin: 0 0 3px 0;
+    padding: 0px;
+    /*font-weight: bold;*/
+    display: block;
+}
+
+.Select select {
+    border: 1px solid #d0c4c4;
+    cursor: pointer;
+    background-color: #fff;
+    color: #000;
+    font-size: inherit;
+    padding: .5em;
+    display: block;
+    box-sizing: border-box;
+    border-radius: 5px;
+    text-indent: 0.01px;
+    text-overflow: '';
+    margin: 0 0 5px;
+    width: 100%;
+    outline: none;
+    /*border: none;*/
+
+    transition: all .3s ease-in-out;
+}
+
+.Select select:focus {
+    border: 1px solid #0096fb;
+    transition: all .1s ease-in-out;
+}
