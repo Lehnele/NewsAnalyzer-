@@ -5,9 +5,9 @@ import Logo from '../../components/Logo/Logo';
 
 const Header = () => {
   function renderLinks(links) {
-    return links.map((link, index) => {
+    return links.map(link => {
       return (
-        <li key={index}>
+        <li key={link.to}>
           <NavLink
             to={link.to}
           >

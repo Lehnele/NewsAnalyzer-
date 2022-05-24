@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useMemo} from 'react';
 import './LineChart.css';
 import {
   Chart as ChartJS,
@@ -13,51 +13,53 @@ import {
 import { Line } from 'react-chartjs-2';
 import { Color } from '../../../hoc/Layout/Layout';
 
-const LineChart = props => {
-  ChartJS.register(
-    CategoryScale,
-    LinearScale,
-    PointElement,
-    LineElement,
-    Title,
-    Tooltip,
-    Legend
-  );
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  PointElement,
+  LineElement,
+  Title,
+  Tooltip,
+  Legend
+);
 
+const LineChart = props => {
   const options = {
     responsive: true,
     plugins: {
       legend: {
-        position: 'top',
+        position: 'top'
       },
       title: {
         display: true,
-        text: `Линейная диаграмма ${props.title}.`,
-      },
-    },
-  };
-
-  const labels = props.chartSetting.map((item) => {
-    return item['label'];
-  })
-
-  const data = {
-    labels,
-    datasets: [
-      {
-        label: props.label,
-        data: props.chartSetting.map((item) => {
-          return item['count'];
-        }),
-        borderColor: Color,
-        backgroundColor: Color,
+        text: `Линейная диаграмма ${props.title}.`
       }
-    ],
+    }
   };
+
+  const labels = props.chartSetting.map(item => item['label'])
+
+  const data = useMemo(() => {
+    return {
+      labels,
+      datasets: [
+        {
+          label: props.label,
+          data: props.chartSetting.map(item => item['count']),
+          borderColor: Color,
+          backgroundColor: Color,
+        }
+      ]
+    };
+  }, [props.chartSetting])
+
+  const line = useMemo(() => {
+    return <Line options={options} data={data} />
+  }, [data])
 
   return (
     <div className='LineChart'>
-      <Line options={options} data={data} />
+      {line}
     </div>
   );
 };

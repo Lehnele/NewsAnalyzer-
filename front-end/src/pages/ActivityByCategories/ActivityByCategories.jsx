@@ -1,4 +1,4 @@
-import React, {useEffect, useRef, useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import './ActivityByCategories.css';
 import axios from "../../axios/axios";
 //UI components
@@ -14,7 +14,7 @@ import LineChart from "../../components/Charts/LineChart/LineChart";
 
 
 const ActivityByCategories = () => {
-  const [ActivityByCategoriesState, setActivityByCategoriesState] = useState({
+  const [activityByCategoriesState, setActivityByCategoriesState] = useState({
     Source: 1,
     AnalyzeBy: 'by_day',
     Categories: []
@@ -44,11 +44,11 @@ const ActivityByCategories = () => {
     fetchCategory()
   }, [])
 
-  const FetchAnalyzeSettings = async () => {
-    const AnalyzeSettings = JSON.stringify(ActivityByCategoriesState)
+  const fetchAnalyzeSettings = async () => {
+    const analyzeSettings = JSON.stringify(activityByCategoriesState)
     setLoader({loader: true})
     try {
-      const response = await axios.post('category-activity', AnalyzeSettings, {'headers': {'accept': 'application/json', 'Content-Type': 'application/json'}});
+      const response = await axios.post('category-activity', analyzeSettings, {'headers': {'accept': 'application/json', 'Content-Type': 'application/json'}});
       setChartSetting(response.data)
       setLoader({loader: false})
     } catch (e) {
@@ -67,15 +67,15 @@ const ActivityByCategories = () => {
       chose = 'by_month'
     }
 
-    setActivityByCategoriesState(ActivityByCategoriesState => ({
-      ...ActivityByCategoriesState,
+    setActivityByCategoriesState(activityByCategoriesState => ({
+      ...activityByCategoriesState,
       AnalyzeBy: chose
     }))
   }
 
   const sourceSelectorChangeHandler = event => {
-    setActivityByCategoriesState(ActivityByCategoriesState => ({
-      ...ActivityByCategoriesState,
+    setActivityByCategoriesState(activityByCategoriesState => ({
+      ...activityByCategoriesState,
       Source: +event.target.value
     }))
   }
@@ -90,7 +90,7 @@ const ActivityByCategories = () => {
   const sourceSelector = <Select
     onChange={sourceSelectorChangeHandler}
     label='Источник'
-    value={ActivityByCategoriesState.category}
+    value={activityByCategoriesState.category}
     options={[
       {text: 'Lenta.ru', value: 1},
       {text: 'Риа новости', value: 2},
@@ -102,7 +102,7 @@ const ActivityByCategories = () => {
   const analyzeSelector = <Select
     onChange={timeSelectorChangeHandler}
     label='За последний(и):'
-    value={ActivityByCategoriesState.category}
+    value={activityByCategoriesState.category}
     options={[
       {text: 'День', value: 1},
       {text: 'Неделя', value: 2},
@@ -183,10 +183,11 @@ const ActivityByCategories = () => {
   }
 
   const multiselect = <div className='categoryMultiselect'>
-    <label htmlFor="multiselect">Категории</label>
-    <label htmlFor="">Выбрать все</label>
+    <label htmlFor="categoryMultiselect">Категории</label>
+    <label htmlFor="chooseAll">Выбрать все</label>
     <Multiselect
       className='Multiselect'
+      id='categoryMultiselect'
       options={multiselectState.options}
       onSelect={onSelect}
       onRemove={onRemove}
@@ -200,7 +201,7 @@ const ActivityByCategories = () => {
       style={style}
     />
     <div className='SelectAll'>
-      <input type="checkbox" onChange={multiselectAllHandler}/>
+      <input id='chooseAll' type="checkbox" onChange={multiselectAllHandler}/>
     </div>
   </div>
 
@@ -210,10 +211,9 @@ const ActivityByCategories = () => {
         { sourceSelector }
         { analyzeSelector }
         { multiselect }
-
         <span className="break"/>
         { checkBox }
-        <Button onClick={FetchAnalyzeSettings}>Анализ</Button>
+        <Button onClick={fetchAnalyzeSettings}>Анализ</Button>
       </div>
 
       <div className='ActivityByCategoriesCharts'>

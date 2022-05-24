@@ -2,18 +2,14 @@ import React from 'react';
 import './Input.css';
 
 const Input = props => {
-  const inputType = props.type || 'text'
-  const htmlFor = `${inputType}-${Math.random()}`
-
+  const inputType = props.type ?? 'text'
 
   return (
     <div className='Input'>
-      <label htmlFor={htmlFor}>
+      <label>
         { props.label }
-      </label>
         <input
           type={inputType}
-          id={htmlFor}
           placeholder={props.placeholder}
           value={props.value}
           onChange={props.onChange}
@@ -22,6 +18,7 @@ const Input = props => {
           max={props.max}
           required
         />
+      </label>
     </div>
   );
 };
