@@ -1,0 +1,82 @@
+[
+  {
+    "_id": 1,
+    "name": "Lenta.ru",
+    "label": "Лента",
+    "analyze_abilities": [
+      "TopWords",
+      "Activity",
+      "ActivityByCategory"
+    ],
+    "Categories": [
+      {
+        "id": 1,
+        "label": "Россия",
+        "link_label": "russia"
+      },
+      {
+        "id": 2,
+        "label": "Мир",
+        "link_label": "world"
+      },
+      {
+        "id": 3,
+        "label": "Бывший СССР",
+        "link_label": "ussr"
+      },
+      {
+        "id": 4,
+        "label": "Экономика",
+        "link_label": "economics"
+      },
+      {
+        "id": 5,
+        "label": "Силовые структуры",
+        "link_label": "forces"
+      },
+      {
+        "id": 6,
+        "label": "Наука и техника",
+        "link_label": "science"
+      },
+      {
+        "id": 7,
+        "label": "Культура",
+        "link_label": "culture"
+      },
+      {
+        "id": 8,
+        "label": "Спорт",
+        "link_label": "sport"
+      },
+      {
+        "id": 9,
+        "label": "Интернет и СМИ",
+        "link_label": "media"
+      },
+      {
+        "id": 10,
+        "label": "Ценности",
+        "link_label": "style"
+      },
+      {
+        "id": 11,
+        "label": "Путешествия",
+        "link_label": "travel"
+      },
+      {
+        "id": 12,
+        "label": "Из жизни",
+        "link_label": "life"
+      }
+    ]
+  },
+  {
+    "_id": 2,
+    "name": "TASS-RSS",
+    "label": "ТАСС-RSS",
+    "analyze_abilities": [
+      "TopWords"
+    ]
+  }
+]
