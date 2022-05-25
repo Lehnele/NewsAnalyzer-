@@ -1,0 +1,37 @@
+.Input {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 6px;
+}
+
+.Input label {
+    color: #000;
+    margin: 0 0 3px 0;
+    padding: 0px;
+    /*font-weight: bold;*/
+    display: block;
+}
+
+.Input input {
+    border: 1px solid #d0c4c4;
+    text-align: center;
+    cursor: pointer;
+    background-color: #fff;
+    color: #383535;
+    font-size: inherit;
+    padding: .5em;
+    display: block;
+    box-sizing: border-box;
+    border-radius: 5px;
+    text-indent: 0.01px;
+    margin: 0 0 5px;
+    width: 100px;
+    outline: none;
+    /*border: none;*/
+    transition: all .3s ease-in-out;
+}
+
+.Input input:focus {
+    border: 1px solid #0096fb;
+    transition: all .1s ease-in-out;
+}
