@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useState} from 'react';
 import './Activity.css';
 import axios from "../../axios/axios";
 //UI components
@@ -78,7 +78,7 @@ const Activity = () => {
     onChange={sourceSelectorChangeHandler}
     label='Источник'
     value={ActivityState.category}
-    options={[
+    items={[
       {text: 'Lenta.ru', value: 1},
       {text: 'Риа новости', value: 2},
       {text: 'ТАСС', value: 3},
@@ -90,7 +90,7 @@ const Activity = () => {
     onChange={timeSelectorChangeHandler}
     label='За последний(и):'
     value={ActivityState.category}
-    options={[
+    items={[
       {text: 'День', value: 1},
       {text: 'Неделя', value: 2},
       {text: 'Месяц', value: 3},
@@ -99,7 +99,7 @@ const Activity = () => {
 
   const checkBox = <CheckBox
     checkBoxChangeHandler={checkBoxChangeHandler}
-    options={[
+    items={[
       {label: 'Doughnut', text: 'Круговая'},
       {label: 'VerticalBar', text: 'Столбчатая'},
       {label: 'Line', text: 'Кривая'},

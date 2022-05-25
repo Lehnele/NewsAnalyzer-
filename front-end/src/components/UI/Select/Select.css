@@ -7,7 +7,6 @@
     color: #000;
     margin: 0 0 3px 0;
     padding: 0px;
-    /*font-weight: bold;*/
     display: block;
 }
 
@@ -26,8 +25,6 @@
     margin: 0 0 5px;
     width: 100%;
     outline: none;
-    /*border: none;*/
-
     transition: all .3s ease-in-out;
 }
 

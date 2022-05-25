@@ -91,7 +91,7 @@ const ActivityByCategories = () => {
     onChange={sourceSelectorChangeHandler}
     label='Источник'
     value={activityByCategoriesState.category}
-    options={[
+    items={[
       {text: 'Lenta.ru', value: 1},
       {text: 'Риа новости', value: 2},
       {text: 'ТАСС', value: 3},
@@ -103,7 +103,7 @@ const ActivityByCategories = () => {
     onChange={timeSelectorChangeHandler}
     label='За последний(и):'
     value={activityByCategoriesState.category}
-    options={[
+    items={[
       {text: 'День', value: 1},
       {text: 'Неделя', value: 2},
       {text: 'Месяц', value: 3},
@@ -112,7 +112,7 @@ const ActivityByCategories = () => {
 
   const checkBox = <CheckBox
     checkBoxChangeHandler={checkBoxChangeHandler}
-    options={[
+    items={[
       {label: 'Doughnut', text: 'Круговая'},
       {label: 'VerticalBar', text: 'Столбчатая'},
       {label: 'Line', text: 'Кривая'},

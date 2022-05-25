@@ -87,7 +87,7 @@ const PopularWords = () => {
     onChange={sourceSelectorChangeHandler}
     label='Источник'
     value={PopularWordsState.category}
-    options={[
+    items={[
       {text: 'Lenta.ru', value: 1},
       {text: 'Риа новости', value: 2},
       {text: 'ТАСС', value: 3},
@@ -99,7 +99,7 @@ const PopularWords = () => {
     onChange={analyzeSelectorChangeHandler}
     label='Анализ по:'
     value={PopularWordsState.category}
-    options={[
+    items={[
       {text: 'По заголовку', value: 1},
       {text: 'По тексту', value: 2},
     ]}
@@ -127,7 +127,7 @@ const PopularWords = () => {
 
   const checkBox = <CheckBox
     checkBoxChangeHandler={checkBoxChangeHandler}
-    options={[
+    items={[
       {label: 'Nouns', text: 'Существительные'},
       {label: 'Verbs', text: 'Глаголы'},
       {label: 'Percent', text: 'Отобразить в процентах'},
